@@ -21,6 +21,7 @@ public class Order {
 				if(input.equals("run"))
 				{
 					System.out.println("Starts!");
+					System.out.println("First must be outside require!");
 					break;
 				}
 				else
@@ -38,53 +39,75 @@ public class Order {
 								layer = Integer.parseInt(data[1]);
 								direction = data[2];
 								double temp =  Double.parseDouble(data[3]);
-								if(temp<timeout)
+								if(temp<=timeout|| (temp-(int)temp)!=0)
+								{
+									System.out.println("Format error!\n");
 									continue;
+								}
 								else
 									timeout = temp;
 							}
 							catch(Exception ef)
 							{
+								System.out.println("Format error!\n");
 								continue;
 							}
 							if(layer>10 ||layer < 1)
+							{
+								System.out.println("Format error!\n");
 								continue;
+							}
 							if((layer==1 && direction.equals("DOWN"))||(layer==10 && direction.equals("UP")))
+							{
+								System.out.println("Format error!\n");
 								continue;
+							}
 							if(direction.equals("UP")||direction.equals("DOWN"))
 							{
 								r = new Require(true,layer,direction,timeout);
 								q.add(r);
 							}
 							else
+							{
+								System.out.println("Format error!\n");
 								continue;
+							}
 							break;
 						case 3:
 							try
 							{
 								layer = Integer.parseInt(data[1]);
 								double temp =  Double.parseDouble(data[2]);
-								if(temp<timein)
+								if(temp<=timein || (temp-(int)temp)!=0)
+								{
+									System.out.println("Format error!\n");
 									continue;
+								}
 								else
 									timein = temp;
 								
 							}
 							catch(Exception ed)
 							{
+								System.out.println("Format error!\n");
 								continue;
 							}
 							if(layer>10 || layer < 1)
+							{
+								System.out.println("Format error!\n");
 								continue;
+							}
 							r = new Require(false,layer," ",timein);
 							q.add(r);
 							break;
 						default:
+							System.out.println("Format error!\n");
 							continue;
 						}
 					}
 					else
 					{
+						System.out.println("Format error!\n");
 						continue;
 					}
 				}
