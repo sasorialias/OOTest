@@ -102,18 +102,21 @@ public class Order {
 				if(r.kind == false)
 					expHandler.cerr(1);
 				else
+				{
 					l.run(r);
+					l.print();
+				}
 			}
 			while(!q.isempty())
 			{
 				r = q.pop();
 				l.run(r);
+				l.print();
 			}
 		}
 		catch(Exception e)
 		{
 			expHandler.cerr(3);
 		}
-		l.print();
 	}
 }
