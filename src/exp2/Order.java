@@ -130,6 +130,8 @@ public class Order {
 					l.print();
 				}
 			}
+			else
+				l.print();
 			while(!q.isempty())
 			{
 				r = q.pop();
