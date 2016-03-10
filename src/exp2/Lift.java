@@ -11,7 +11,10 @@ public class Lift extends Require{
 	}
 	public void run(Require r)
 	{
-		time += (Math.abs(r.layer-layer))*ConstData.speed+ConstData.stay;
+		if(r.time > time)
+			time = r.time + 1.0;
+		else
+			time += (Math.abs(r.layer-layer))*ConstData.speed+ConstData.stay;
 		//if(r.kind == false)
 		//{
 			if(r.layer < layer)
