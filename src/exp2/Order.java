@@ -39,7 +39,7 @@ public class Order {
 								layer = Integer.parseInt(data[1]);
 								direction = data[2];
 								double temp =  Double.parseDouble(data[3]);
-								if(temp<=timeout|| (temp-(int)temp)!=0)
+								if(temp<timeout|| (temp-(int)temp)!=0)
 								{
 									System.out.println("Format error!\n");
 									continue;
@@ -78,7 +78,7 @@ public class Order {
 							{
 								layer = Integer.parseInt(data[1]);
 								double temp =  Double.parseDouble(data[2]);
-								if(temp<=timein || (temp-(int)temp)!=0)
+								if(temp<timein || (temp-(int)temp)!=0)
 								{
 									System.out.println("Format error!\n");
 									continue;

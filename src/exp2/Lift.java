@@ -1,5 +1,7 @@
 package exp2;
 
+import java.text.DecimalFormat;
+
 public class Lift extends Require{
 	private int peopleNum;
 	public Lift()
@@ -29,7 +31,9 @@ public class Lift extends Require{
 	}
 	public void print()
 	{
-		System.out.println("The result is:");
-		System.out.println("("+layer+","+direction+","+time+")");
+		DecimalFormat df = new DecimalFormat("0.0");
+		String times = df.format(time);
+		System.out.print("The result is:");
+		System.out.println("("+layer+","+direction+","+times+")");
 	}
 }
